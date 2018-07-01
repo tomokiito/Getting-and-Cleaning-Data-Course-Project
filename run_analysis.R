@@ -117,6 +117,13 @@ dat_set_merge
 # Set appropriately labels 
 names(dat_set_merge) <- c("ID","train/test","activity","features","value")
 
+dat_set_merge$features <- gsub("^t", "time", dat_set_merge$features)
+dat_set_merge$features <- gsub("^f", "frequency", dat_set_merge$features)  
+dat_set_merge$features <- gsub("Acc", "Accelerometer", dat_set_merge$features)  
+dat_set_merge$features <- gsub("Gyro", "Gyroscope", dat_set_merge$features)  
+dat_set_merge$features <- gsub("Mag", "Magnitude", dat_set_merge$features)  
+dat_set_merge$features <- gsub("BodyBody", "Body", dat_set_merge$features) 
+
 dat_set_merge
 
 ########### 5. creates a second, independent tidy data set  ###########
