@@ -115,7 +115,7 @@ dat_set_merge
 ########### 4. Appropriately labels the data set with descriptive variable names  ###########
 
 # Set appropriately labels 
-names(dat_set_merge) <- c("ID","train/test","activity","features_name","value")
+names(dat_set_merge) <- c("ID","train/test","activity","features","value")
 
 dat_set_merge
 
@@ -123,8 +123,8 @@ dat_set_merge
 
 # Create tidy data
 dat_set_merge2 <- dat_set_merge %>%
-                        group_by(ID,activity) %>%       # group by subjecyID & activity
-                        summarize(Mean = mean(value))   # summarizing
+                        group_by(ID,activity,features) %>%
+                        summarize(Mean = mean(value))
 
 dat_set_merge2
 
